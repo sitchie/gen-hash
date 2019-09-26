@@ -1,0 +1,32 @@
+{
+	"name": "gen-hash",
+	"version": "1.0.0",
+	"description": "hash generator",
+	"main": "index.js",
+	"scripts": {
+		"start": "babel -s inline -d . -w src",
+		"build": "babel -s inline -d . src",
+		"prepublish": "npm run build"
+	},
+	"devDependencies": {
+		"babel-cli": "^6.14.0",
+		"babel-core": "^6.18.2",
+		"babel-plugin-add-module-exports": "^0.2.1",
+		"babel-plugin-transform-object-entries": "^1.0.0",
+		"babel-preset-es2015": "^6.14.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/sitchie/gen-hash.git"
+	},
+	"keywords": [
+		"hash",
+		"hasing"
+	],
+	"author": "Sivaprasad Derangula",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/sitchie/gen-hash/issues"
+	},
+	"homepage": "https://github.com/sitchie/gen-hash#readme"
+}
