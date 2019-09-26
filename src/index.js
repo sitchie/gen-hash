@@ -2,29 +2,26 @@
 
 export default function hash(value, key) {
     let gen = computeGen(key);
-    let hash = gen.init;
+    let hash = gen.i;
 
-    let i = value.length;
-    while (i) {
-        hash = (hash * gen.multiplier) ^ value.charCodeAt(--i);
+    for (let i = 0; i < value.length; i++) {
+        hash = (hash * gen.m) ^ value.charCodeAt(i);
     }
 
-    return hash >>> gen.shiftValue;
+    return hash >>> gen.s;
 }
 
 function computeGen(key) {
-    let i = multiplier = init = shiftValue = key.length;
+    let m = i = s = key.length;
 
-    while (i) {
-        multiplier = (multiplier * key.length) ^ key.charCodeAt(--i);
+    for (let index = 0; index < key.length; index++) {
+        multiplier = (multiplier * key.length) ^ key.charCodeAt(index);
         init += key.charCodeAt(--i)
     }
 
     shiftValue = shiftValue ^ (init ^ multiplier);
 
     return {
-        shiftValue,
-        init,
-        multiplier
+        m, i, s
     };
 }
